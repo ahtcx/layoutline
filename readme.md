@@ -19,13 +19,11 @@ Wait for user to swipe beautiful lines across the keyboard, then you can retriev
 ```
 In this case our user supposedly has a qwerty keyboard.
 
-For retrieving the layout, you could alternatively get the `layouts` object from an external `json` file under the following format.
-```
-layouts = [...]
-```
+For retrieving the layout, you could alternatively get the `layouts` object from an external `js` file under the following format.
+
 Then you only have to add another `script` tag to your `html` file and the variable `layouts` will be defined.
 ```
-<script src="path/to/layouts.json"></script>
+<script src="path/to/layouts.js"></script>
 ```
 
 ### Layouts
@@ -48,5 +46,5 @@ This example layout would mean the keyboard ressembles the following.
 ```
 If there the same character is present more than once, the first one will used, whilst the others will be ignored.
 
-Check out the [`layouts.json`](layouts.json) file to see some proper keyboard layouts.
+Check out the [`layouts.js`](layouts.js) file to see some proper keyboard layouts.
 

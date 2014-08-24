@@ -1,4 +1,4 @@
-layouts = [
+var layouts = [
 	{
 		"name": "qwerty",
 		"layout": [
