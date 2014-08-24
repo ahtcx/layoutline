@@ -19,17 +19,28 @@ Wait for user to swipe beautiful lines across the keyboard, then you can retriev
 ```
 In this case our user supposedly has a qwerty keyboard.
 
+For retrieving the layout, you could alternatively get the `layouts` object from an external `json` file under the following format.
+```
+layouts = [...]
+```
+Then you only have to add another `script` tag to your `html` file and the variable `layouts` will be defined.
+```
+<script src="path/to/layouts.json"></script>
+```
+
 ### Layouts
-Layouts are held in an array of objects, `[layout1, layout2, ...]`.
+Layout objects are held in an array, `[layout1, layout2, ...]`. (Named `layouts` in the usage example above)
 
 A layout object has a matrix of keys, a name, and offsets for each row of keys.
 ```
 {
-	"layout": [["f","i","r","s","t"],["s","e","c","o","n","d"], ...],
+	"layout": [["f","i","r","s","t"],["s","e","c","o","n","d"]],
 	"name": "example layout",
 	"offsets": [0, 3]
 }
 ```
+The keys themselves are seen as on a grid and so with the offsets you can offset a certain row.
+
 This example layout would mean the keyboard ressembles the following.
 ```
 [f][i][r][s][t]
@@ -37,5 +48,5 @@ This example layout would mean the keyboard ressembles the following.
 ```
 If there the same character is present more than once, the first one will used, whilst the others will be ignored.
 
-Check out the `layouts.json` file to see some proper keyboard layouts.
+Check out the [`layouts.json`](layouts.json) file to see some proper keyboard layouts.
 
