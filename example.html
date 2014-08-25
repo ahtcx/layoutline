@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>Layoutline</title>
+		<script src="http://rawgit.com/zeokila/layoutline/master/layoutline.js"></script>
+		<script src="http://rawgit.com/zeokila/layoutline/master/layouts.js"></script>
+		<script>
+			var ll = new window.Layoutline(layouts, 200);
+		</script>
+		<meta charset="utf-8"> 
+	</head>
+	<body onload="var lays = []; for(l in layouts) { lays.push(layouts[l]['name']) } document.getElementById('layouts').innerHTML = lays.join(',');">
+		<p>Make sure the browser has focus (click?) then swipe lines like the example (whatever pattern you want). Disable caps lock, and only use character keys, don't use modifiers, or won't function correctly.
+		<img src="http://i.imgur.com/M6umvRS.png" style="display:block;" />
+		Predicted keyboard: <span id="prediction">none</span></p>
+		<button type="button" onclick="document.getElementById('prediction').innerHTML = ll.getPredictedLayout()['name']; document.getElementById('precision').innerHTML = ll.getPrecision();">Predict!</button>
+		<p>Precision for <span id="layouts"></span><br/><span id="precision"></span></p>
+	</body>
+</html>
+
