@@ -1,5 +1,4 @@
 window.Layoutline = function(layouts, delay) {
-	var context = this;
 	if(layouts && delay) {
 		if(window === this) return new window.Layoutline(layouts, delay);
 		this.delay = delay;
