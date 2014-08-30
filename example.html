@@ -5,7 +5,7 @@
 		<script src="https://rawgit.com/zeokila/layoutline/master/layouts.js"></script>
 		<script>
 			var ll = new window.Layoutline(layouts, 200);
-			window.onkeypress = function(event) { ll.keyPressed(String.fromCharCode(event.which).toLowerCase()); updatePrec(); };
+			window.onkeypress = function(event) { ll.keyPressed(String.fromCharCode(event.which).toLowerCase(), ll); updatePrec(); };
 			
 			function updatePrec() {
 				document.getElementById('prediction').innerHTML = ll.getPredictedLayout()['name'];
