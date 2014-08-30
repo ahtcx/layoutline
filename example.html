@@ -5,11 +5,13 @@
 		<script src="https://rawgit.com/zeokila/layoutline/master/layouts.js"></script>
 		<script>
 			var ll = new window.Layoutline(layouts, 200);
-			window.onkeypress = function(event) { ll.keyPressed(String.fromCharCode(event.which).toLowerCase(), ll); updatePrec(ll); };
+			window.onkeypress = function(event) { ll.keyPressed(String.fromCharCode(event.which).toLowerCase(), ll); updatePrec(); };
 			
-			function updatePrec(ll) {
-				document.getElementById('prediction').innerHTML = ll.getPredictedLayout()['name'];
-				document.getElementById('precision').innerHTML = ll.getPrecision();
+			function updatePrec() {
+				if(ll.getPredictedLayout()) {
+					document.getElementById('prediction').innerHTML = ll.getPredictedLayout()['name'];
+					document.getElementById('precision').innerHTML = ll.getPrecision();
+				}
 			}
 		</script>
 		<meta charset="utf-8"> 
