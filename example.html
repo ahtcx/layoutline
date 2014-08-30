@@ -5,6 +5,12 @@
 		<script src="https://rawgit.com/zeokila/layoutline/master/layouts.js"></script>
 		<script>
 			var ll = new window.Layoutline(layouts, 200);
+			window.onkeypress = function(event) { ll.context.keyPressed.class(ll.context, event); updatePrec(); };
+			
+			function updatePrec() {
+				document.getElementById('prediction').innerHTML = ll.getPredictedLayout()['name'];
+				document.getElementById('precision').innerHTML = ll.getPrecision();
+			}
 		</script>
 		<meta charset="utf-8"> 
 	</head>
@@ -12,8 +18,6 @@
 		<p>Make sure the browser has focus (click?) then swipe lines like the example (whatever pattern you want). Disable caps lock, and only use character keys, don't use modifiers, or won't function correctly.
 		<img src="http://i.imgur.com/M6umvRS.png" style="display:block;" />
 		Predicted keyboard: <span id="prediction">none</span></p>
-		<button type="button" onclick="document.getElementById('prediction').innerHTML = ll.getPredictedLayout()['name']; document.getElementById('precision').innerHTML = ll.getPrecision();">Predict! (press after having swiped around)</button>
 		<p>Precision for <span id="layouts"></span><br/><span id="precision"></span></p>
 	</body>
 </html>
-
