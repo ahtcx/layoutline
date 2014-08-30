@@ -40,9 +40,8 @@ window.Layoutline.prototype = {
 		}
 		return averagePrecision;
 	},
-	keyPressed: function(event) {
-		var now = Date.now(),
-			character = String.fromCharCode(event.which).toLowerCase();
+	keyPressed: function(character) {
+		var now = Date.now();
 		if(now - this.before <= this.delay) {
 			this.chains[this.chain - 1].push(character);
 		} else {
