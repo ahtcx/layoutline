@@ -13,6 +13,7 @@ Initialise the library to detect layouts in `layouts`, and set the maximum delay
 ```
 var layouts = [...],
 	ll = new window.Layoutline(layouts, 200);
+	window.onkeypress = function(event) { ll.context.keyPressed.call(ll.context, event); };
 ```
 Wait for user to swipe beautiful lines across the keyboard, then you can retrieve the predicted layout.
 ```
@@ -21,7 +22,7 @@ Wait for user to swipe beautiful lines across the keyboard, then you can retriev
 ```
 In this case our user supposedly has a qwerty keyboard.
 
-For retrieving the layout, you could alternatively get the `layouts` object from an external `js` file under the following format.
+For retrieving the layout, you could alternatively get the `layouts` object from an external `js`.
 
 Then you only have to add another `script` tag to your `html` file and the variable `layouts` will be defined.
 ```

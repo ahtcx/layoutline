@@ -1,6 +1,5 @@
 window.Layoutline = function(layouts, delay) {
 	var context = this;
-	window.onkeypress = function(event) { context.keyPressed.call(context, event); };
 	if(layouts && delay) {
 		if(window === this) return new window.Layoutline(layouts, delay);
 		this.delay = delay;
