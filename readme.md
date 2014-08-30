@@ -10,8 +10,8 @@ With layoutline.js find out what kind of keyboard layout your user has (among a 
 Initialise the library to detect layouts in `layouts`, and set the maximum delay between chains (of keys) to `200`ms.
 ```
 var layouts = [...],
-	ll = new window.Layoutline(layouts, 200),
-	window.onkeypress = function(event) { ll.keyPressed(String.fromCharCode(event.which).toLowerCase(), ll) };
+	ll = new window.Layoutline(layouts, 200);
+window.onkeypress = function(event) { ll.keyPressed(String.fromCharCode(event.which).toLowerCase(), ll) };
 ```
 Wait for user to swipe beautiful lines across the keyboard, then you can retrieve the predicted layout.
 ```
