@@ -40,16 +40,16 @@ window.Layoutline.prototype = {
 		}
 		return averagePrecision;
 	},
-	keyPressed: function(character) {
+	keyPressed: function(character, ll) {
 		var now = Date.now();
-		if(now - this.before <= this.delay) {
-			this.chains[this.chain - 1].push(character);
+		if(now - ll.before <= ll.delay) {
+			ll.chains[ll.chain - 1].push(character);
 		} else {
-			this.chains.push([character]);
-			this.chain += 1;
+			ll.chains.push([character]);
+			ll.chain += 1;
 		}
-		this.updatePrecision(this.chains[this.chain - 1], this.chains.length - 1);
-		this.before = now;
+		ll.updatePrecision(ll.chains[ll.chain - 1], ll.chains.length - 1);
+		ll.before = now;
 	},
 	updatePrecision: function(currentChain, index) {
 		if(this.precision.length <= index) this.precision.push([]);
