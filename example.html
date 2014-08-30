@@ -10,13 +10,13 @@
 			function updatePrec() {
 				if(ll.getPredictedLayout()) {
 					document.getElementById('prediction').innerHTML = ll.getPredictedLayout()['name'];
-					document.getElementById('precision').innerHTML = ll.getPrecision();
+					document.getElementById('precision').innerHTML = ll.getPrecision().join(', ');
 				}
 			}
 		</script>
 		<meta charset="utf-8"> 
 	</head>
-	<body onload="var lays = []; for(l in layouts) { lays.push(layouts[l]['name']) } document.getElementById('layouts').innerHTML = lays.join(',');">
+	<body onload="var lays = []; for(l in layouts) { lays.push(layouts[l]['name']) } document.getElementById('layouts').innerHTML = lays.join(', ');">
 		<p>Make sure the browser has focus (click?) then swipe lines like the example (whatever pattern you want). Disable caps lock, and only use character keys, don't use modifiers, or won't function correctly.
 		<img src="https://i.imgur.com/M6umvRS.png" style="display:block;" />
 		Predicted keyboard: <span id="prediction">none</span></p>
