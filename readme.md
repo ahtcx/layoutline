@@ -2,8 +2,6 @@ Layoutline
 ==========
 With layoutline.js find out what kind of keyboard layout your user has (among a list of layouts) just by swiping the keyboard characters in lines. [Try it out here](https://zeokila.github.io/layoutline/example.html).
 
-`/!\ Pretty buggy at the moment, squishing them don't worry /!\`
-
 ![usage](http://i.imgur.com/M6umvRS.png)
 
 ## Library
@@ -13,7 +11,7 @@ Initialise the library to detect layouts in `layouts`, and set the maximum delay
 ```
 var layouts = [...],
 	ll = new window.Layoutline(layouts, 200);
-	window.onkeypress = function(event) { ll.context.keyPressed.call(ll.context, event); };
+	window.onkeypress = function(event) { ll.keyPressed(String.fromCharCode(event.which).toLowerCase(), ll) };
 ```
 Wait for user to swipe beautiful lines across the keyboard, then you can retrieve the predicted layout.
 ```
