@@ -1,0 +1,131 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Layoutline</title>
+		<script src="https://rawgit.com/zeokila/layoutline/master/layoutline.js"></script>
+		<script src="https://rawgit.com/zeokila/layoutline/master/layouts.js"></script>
+		<script type="text/javascript">
+			var ll = new window.Layoutline(layouts, 200);
+				window.onkeypress = function(event) { ll.keyPressed(String.fromCharCode(event.which).toLowerCase(), ll); update(); };
+				
+			var blankLayout = {
+				'name': 'blank',
+				'layout': [
+					["","","","","","","","","","","","",""],
+					["","","","","","","","","","","","",""],
+					["","","","","","","","","","",""],
+					["","","","","","","","","",""]
+				],
+				'offsets': [0, 1.5, 1.75, 2.25]
+			}
+				
+			function update() {
+				var predicted = ll.getPredictedLayout();
+				if(predicted) layoutToHtml(predicted);
+			}
+			
+			function layoutToHtml(layout) {
+				var keyboardElement = document.getElementById('keyboard'),
+					rows = layout.layout;
+				keyboardElement.innerHTML = '';
+				for(row in rows) {
+					var p = document.createElement('p');
+					p.setAttribute('class', 'row');
+					p.setAttribute('style', 'margin-left: calc(' + layout.offsets[row] + ' * (36px + 1em));');
+					for(character in rows[row]) {
+						var span = document.createElement('span');
+						span.innerHTML = rows[row][character];
+						p.appendChild(span);
+					}
+					keyboardElement.appendChild(p);
+				}
+			}
+		</script>
+		<style>
+			body {
+				background: #923;
+				margin: 0;
+			}
+		
+			* {
+				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+				font-weight: 100;
+				color: #fff;
+				text-shadow: 0 1px 0 #000;
+				text-align: center;
+			}
+			
+			header > h1 {
+				font-size: 48px;
+				line-height: 48px;
+				margin: 24px 0;
+				display: inline-block;
+				width: 100%;
+			}
+			
+			header > h4 {
+				font-size: 18px;
+				line-height: 18px;
+				margin: 0;
+			}
+			
+			main {
+				position: absolute;
+				width: 100%;
+				top: 120px;
+				bottom: 3em;
+				overflow: auto;
+			}
+			
+			main:before {
+				content: '';
+				display: inline-block;
+				height: 100%;
+				vertical-align: middle;
+			}
+			
+			#keyboard {
+				display: inline-block;
+				vertical-align: middle;
+			}
+			
+			#keyboard > p.row {
+				display: flex;
+				margin: 0;
+			}
+			
+			#keyboard > p.row > span {
+				margin: 4px;
+				width: 18px;
+				height: 18px;
+				display: inline-block;
+				padding: 16px;
+				border: 1px solid #fff;
+				border-radius: 6px;
+			}
+			
+			footer {
+				position: absolute;
+				width: 100%;
+				bottom: 0;
+			}
+		</style>
+	</head>
+	<body onload="layoutToHtml(blankLayout);">
+		<header>
+			<h1>Layoutline</h1>
+			<h4>Swipe lines on your keyboard to find out your layout!</h4>
+		</header>
+		<main>
+			<div id="keyboard">
+				<p class="row" style="margin-left: 0;"><span>²</span><span>&</span><span>é</span><span>"</span><span>'</span><span>(</span><span>-</span><span>è</span><span>_</span><span>ç</span><span>à</span><span>)</span><span>=</span></p>
+				<p class="row" style="margin-left: calc(1.5 * 52px);"><span>A</span><span>Z</span><span>E</span><span>R</span><span>T</span><span>Y</span><span>U</span><span>I</span><span>O</span><span>P</span><span>^</span><span>$</span></p>
+				<p class="row" style="margin-left: calc(1.75 * 52px);"><span>Q</span><span>S</span><span>D</span><span>F</span><span>G</span><span>H</span><span>J</span><span>K</span><span>L</span><span>M</span><span>ù</span><span>*</span></p>
+				<p class="row" style="margin-left: calc(1.25 * 52px);"><span><</span><span>W</span><span>X</span><span>C</span><span>V</span><span>B</span><span>N</span><span>,</span><span>;</span><span>:</span><span>!</span></p>
+			</div>
+		</main>
+		<footer>
+			<p>Created by <a href="/">Alexandre Hitchcox</a> — <a href="https://github.com/zeokila/layoutline">Source</a></p>
+		</footer>
+	</body>
+</html>
