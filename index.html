@@ -36,6 +36,8 @@
 				info = document.getElementById('info');
 				
 				advancedElement.onchange = function(event) { advanced(event.srcElement.checked); }
+				
+				layoutToHtml(blankLayout);
 			}
 			
 			window.onkeypress = function(event) { ll.keyPressed(String.fromCharCode(event.which).toLowerCase(), ll); update(); };
@@ -188,7 +190,7 @@
 			}
 		</style>
 	</head>
-	<body onload="layoutToHtml(blankLayout);">
+	<body>
 		<div id="info"></div>
 		<header>
 			<h1>Layoutline</h1>
