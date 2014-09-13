@@ -35,7 +35,7 @@
 				advancedElement = document.getElementById('advanced');
 				info = document.getElementById('info');
 				
-				advancedElement.onchange = function(event) { advanced(event.originalTarget.checked); }
+				advancedElement.onchange = function(event) { advanced(event.target.checked); }
 				
 				layoutToHtml(blankLayout);
 			}
